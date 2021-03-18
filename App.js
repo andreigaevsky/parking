@@ -29,6 +29,8 @@ import {
 import FooterTabs from "./src/tabs/FooterTabs";
 import MainScreen from "./src/screens/MainScreen";
 
+console.disableYellowBox = true;
+
 const App: () => React$Node = () => {
   return (
     <>

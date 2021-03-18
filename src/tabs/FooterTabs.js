@@ -24,7 +24,7 @@ export default function MyTabs(props) {
                         options={{
                             tabBarLabel: 'List',
                             tabBarIcon: ({ color, size }) => (
-                                <MaterialCommunityIcons name="view-list" color={color} size={size} />
+                                <MaterialCommunityIcons name="format-list-bulleted" color={color} size={size} />
                             ),
                         }}
             />
@@ -32,7 +32,7 @@ export default function MyTabs(props) {
                         options={{
                             tabBarLabel: 'Map',
                             tabBarIcon: ({ color, size }) => (
-                                <MaterialCommunityIcons name="map" color={color} size={size} />
+                                <MaterialCommunityIcons name="map-marker" color={color} size={size} />
                             ),
                         }}
             />
@@ -40,7 +40,7 @@ export default function MyTabs(props) {
                         options={{
                             tabBarLabel: 'add',
                             tabBarIcon: ({ color, size }) => (
-                                <MaterialCommunityIcons name="plus" color={color} size={size} />
+                                <MaterialCommunityIcons name="layers-plus" color={color} size={size} />
                             ),
                         }}
             />

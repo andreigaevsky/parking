@@ -1,3 +1,3 @@
 export default {
-    MAIN: '#597da3'
+    MAIN: '#6a9bf5'
 }
