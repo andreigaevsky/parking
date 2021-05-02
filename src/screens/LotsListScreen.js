@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {FlatList, View, Text, StyleSheet, ActivityIndicator} from 'react-native';
-import {Container, Header, Item, Input, Icon, Button} from 'native-base';
+import {ActivityIndicator, FlatList, StyleSheet, Text, View} from 'react-native';
+import {Header, Title} from 'native-base';
 import Colors from '../constants/Colors';
 import Numbers from "../constants/Numbers";
 
@@ -59,9 +59,16 @@ export default class LotsListScreen extends Component {
                             {item.address.substring(0, item.address.indexOf(','))}
                         </Text>
                     </View>
-                    <View style={{width: 70, padding: 5, borderColor: '#ffe19b', borderWidth: 2, borderRadius: 25, alignItems: 'center', }}>
+                    <View style={{
+                        width: 70,
+                        padding: 5,
+                        borderColor: '#ffe19b',
+                        borderWidth: 2,
+                        borderRadius: 25,
+                        alignItems: 'center',
+                    }}>
                         <Text>
-                            <Text style={[styles.itemText, { fontWeight: 'bold'}]}>
+                            <Text style={[styles.itemText, {fontWeight: 'bold'}]}>
                                 {item.freeSlotsCount}
                             </Text>
                             <Text style={styles.itemText}>
@@ -70,7 +77,7 @@ export default class LotsListScreen extends Component {
                         </Text>
                     </View>
                 </View>
-                <View style={styles.border} />
+                <View style={styles.border}/>
             </View>
         );
     };
@@ -80,17 +87,10 @@ export default class LotsListScreen extends Component {
     };
 
     render() {
-        console.log(this.state)
         return (
             <View style={{flex: 1, backgroundColor: 'white'}}>
-                <Header searchBar rounded style={{backgroundColor: Colors.MAIN}} androidStatusBarColor={Colors.MAIN}>
-                    <Item>
-                        <Icon name="ios-search" />
-                        <Input placeholder="Search" />
-                    </Item>
-                    <Button transparent>
-                        <Text>Search</Text>
-                    </Button>
+                <Header style={{backgroundColor: Colors.MAIN}} androidStatusBarColor={Colors.MAIN}>
+                    <Title style={{alignSelf: 'center'}}>Available Points</Title>
                 </Header>
                 {this.state.data !== null ? <View style={{flex: 1}}>
                     <FlatList
@@ -98,7 +98,7 @@ export default class LotsListScreen extends Component {
                         renderItem={this.renderItem}
                         keyExtractor={this._keyExtractor}
                     />
-                </View> : <View style={{justifyContent: "center", flex: 1}}><ActivityIndicator size="large" /></View>
+                </View> : <View style={{justifyContent: "center", flex: 1}}><ActivityIndicator size="large"/></View>
                 }
             </View>
         );
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     border: {
         width: '95%',
-        alignSelf:"center",
+        alignSelf: "center",
         borderBottomWidth: 1,
         borderColor: '#e9f3fd',
     },
