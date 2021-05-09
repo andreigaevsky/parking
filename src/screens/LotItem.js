@@ -64,7 +64,7 @@ export default class Accordian extends Component{
                 </TouchableOpacity>
                 {
                     this.state.expanded &&
-                    <Image style={{width: width, height: height*0.4, resizeMode: 'cover'}} source={{uri: 'data:image/png;base64,'+this.state.item.image}}/>
+                    <Image style={{width: width, height: height*0.4, resizeMode: 'contain'}} source={{uri: 'data:image/png;base64,'+this.state.item.image}}/>
                 }
 
             </View>
