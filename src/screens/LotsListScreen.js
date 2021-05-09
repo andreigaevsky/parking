@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {ActivityIndicator, FlatList, StyleSheet, Text, View} from 'react-native';
+import {ActivityIndicator, FlatList, StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import {Header, Title} from 'native-base';
 import Colors from '../constants/Colors';
 import Numbers from "../constants/Numbers";
-
+import Accordian from "./LotItem";
+const { width, height } = Dimensions.get('window');
 export default class LotsListScreen extends Component {
 
     constructor(props) {
@@ -49,36 +50,7 @@ export default class LotsListScreen extends Component {
 
     renderItem = ({item}) => {
         return (
-            <View style={styles.itemContainer}>
-                <View style={styles.item}>
-                    <View style={{flexDirection: 'column', width: '85%'}}>
-                        <Text numberOfLines={1} style={styles.itemText}>
-                            {item.address.substring(item.address.indexOf(',') + 2)}
-                        </Text>
-                        <Text numberOfLines={1} style={[styles.itemText, {fontSize: 15, color: '#7babdc'}]}>
-                            {item.address.substring(0, item.address.indexOf(','))}
-                        </Text>
-                    </View>
-                    <View style={{
-                        width: 70,
-                        padding: 5,
-                        borderColor: '#ffe19b',
-                        borderWidth: 2,
-                        borderRadius: 25,
-                        alignItems: 'center',
-                    }}>
-                        <Text>
-                            <Text style={[styles.itemText, {fontWeight: 'bold'}]}>
-                                {item.freeSlotsCount}
-                            </Text>
-                            <Text style={styles.itemText}>
-                                {` / ${item.allSlotsCount}`}
-                            </Text>
-                        </Text>
-                    </View>
-                </View>
-                <View style={styles.border}/>
-            </View>
+            <Accordian data={item} />
         );
     };
 

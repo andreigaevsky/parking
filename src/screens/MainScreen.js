@@ -21,7 +21,7 @@ export default class MainScreen extends Component {
     _fetchNewData = () => {
         fetch(URL.API_URL+"/api/parking/all",).then((resp) => {
             if(resp.ok) {
-               resp.json().then((json)=> {this.setState({data: json} )});
+               resp.json().then((json)=> {  this.setState({data: json} )});
             }else{
                 console.log("ERROR Main");
             }
