@@ -18,12 +18,16 @@ export default class Accordian extends Component{
         super(props);
         this.state = {
             item: props.data,
-            expanded : false,
+            expanded : props.expanded,
         };
 
         if (Platform.OS === 'android') {
             UIManager.setLayoutAnimationEnabledExperimental(true);
         }
+    }
+
+    setExpanded(expanded) {
+        this.setState({expanded: expanded})
     }
 
     render() {
@@ -72,6 +76,7 @@ export default class Accordian extends Component{
     }
 
     toggleExpand=()=>{
+        this.props.setId(this.state.expanded ? -1 : this.props.data.id);
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         this.setState({expanded : !this.state.expanded})
     }

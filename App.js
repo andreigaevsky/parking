@@ -7,27 +7,14 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-navigator.geolocation = require('@react-native-community/geolocation');
+import {StyleSheet,} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import FlashMessage from "react-native-flash-message";
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import FooterTabs from "./src/tabs/FooterTabs";
+import {Colors,} from 'react-native/Libraries/NewAppScreen';
 import MainScreen from "./src/screens/MainScreen";
+
+navigator.geolocation = require('@react-native-community/geolocation');
 
 console.disableYellowBox = true;
 

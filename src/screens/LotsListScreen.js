@@ -12,8 +12,10 @@ export default class LotsListScreen extends Component {
         this.state = {
             index: 1,
             data: null,
-            ready: false
+            ready: false,
+            refresh: true
         }
+        this.expanded = -1;
     }
 
     _setInterval = () => {
@@ -42,20 +44,27 @@ export default class LotsListScreen extends Component {
 
     _setNewData = () => {
         this.setState({data: this.props.route.params.getData() || null}, () => this._setReady());
+        this.setState({
+            refresh: !this.state.refresh
+        })
     };
 
     _setReady = () => {
         this.setState({ready: true});
     };
 
+    setId = (id) => {
+     this.expanded = id;
+    }
+
     renderItem = ({item}) => {
         return (
-            <Accordian data={item} />
+            <Accordian data={item} expanded={item.id===this.expanded} setId={this.setId}/>
         );
     };
 
     _keyExtractor = (item) => {
-        return item.id + "";
+        return item.allSlotsCount + item.freeSlotsCount + item.id * 1000 + "";
     };
 
     render() {
@@ -69,6 +78,7 @@ export default class LotsListScreen extends Component {
                         data={this.state.data}
                         renderItem={this.renderItem}
                         keyExtractor={this._keyExtractor}
+                        extraData={this.state.refresh}
                     />
                 </View> : <View style={{justifyContent: "center", flex: 1}}><ActivityIndicator size="large"/></View>
                 }
